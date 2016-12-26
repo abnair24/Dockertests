@@ -1,5 +1,6 @@
 package com.dockerSel.tests;
 
+import com.dockerSel.utils.PropertyReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,6 +18,7 @@ public class BaseTest {
 
     public WebDriver driver;
     protected DesiredCapabilities desiredCapabilities;
+    PropertyReader propertyReader;
 
     @BeforeClass
     @Parameters({"browserType"})
@@ -28,7 +30,7 @@ public class BaseTest {
         }
 
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilities);
-        driver.get("http://accountsdemo.herokuapp.com/users/sign_in");
+        driver.get(PropertyReader.getPropValue("url"));
 
     }
 
