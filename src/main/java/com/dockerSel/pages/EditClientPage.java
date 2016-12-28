@@ -51,7 +51,8 @@ public class EditClientPage extends BasePage<EditClientPage> {
     }
 
     public EditClientPage verifyClientEmail(String email) throws Exception {
-        Assert.assertEquals(clientEmail.getText(),email);
+
+        Assert.assertEquals(clientEmail.getAttribute("value"),email);
         return this;
     }
 

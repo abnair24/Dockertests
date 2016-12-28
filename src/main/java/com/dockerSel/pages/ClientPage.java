@@ -27,6 +27,9 @@ public class ClientPage extends BasePage<ClientPage> {
     @FindBy(xpath = ".//a[@class='info']")
     private WebElement selectClient;
 
+    @FindBy(xpath = ".//table[@class='table gridData table-hover']")
+    private WebElement clientTable;
+
 
     private static Logger LOGGER = LoggerFactory.getLogger(ClientPage.class);
 
@@ -50,6 +53,8 @@ public class ClientPage extends BasePage<ClientPage> {
     public ClientPage searchClient(String searchText) throws Exception {
         enterText(searchField,searchText);
         clickButton(searchButton);
+        waitForElement(ExpectedConditions.visibilityOf(clientTable));
+        Thread.sleep(5000);
         return new ClientPage(driver);
     }
 

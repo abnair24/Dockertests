@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 /**
@@ -20,6 +22,7 @@ public class PropertyReader {
     static final Logger LOGGER = LoggerFactory.getLogger(PropertyReader.class);
 
     public static String getPropValue(String item) throws IOException {
+
         FileInputStream fs =null;
         try {
             Properties prop = new Properties();
@@ -38,5 +41,10 @@ public class PropertyReader {
             fs.close();
         }
         return result;
+    }
+
+    public static String timeStamp(String name) {
+        String value = name + new SimpleDateFormat("ddMMYYhhmm").format(new Date());
+        return value;
     }
 }
