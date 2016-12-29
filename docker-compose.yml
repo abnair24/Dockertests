@@ -1,0 +1,40 @@
+seleniumhub:
+  image: selenium/hub:2.53.1
+  ports:
+    - 4444:4444
+  environment:
+    - no_proxy=localhost
+
+firefoxnode:
+  image: selenium/node-firefox-debug:2.53.1
+  ports:
+    - 5900
+  environment:
+    - no_proxy=localhost
+  links:
+    - seleniumhub:hub
+
+chromenode:
+  image: selenium/node-chrome-debug:2.53.1
+  ports:
+    - 5901
+  environment:
+    - no_proxy=localhost
+  links:
+    - seleniumhub:hub
+
+#Running tests on standalone chrome or firefox
+
+#selenium:
+#  image: selenium/standalone-chrome-debug:2.53.1
+#  ports:
+#    - 4444:4444
+#  environment:
+#    - no_proxy=localhost
+#
+#selenium:
+#  image: selenium/standalone-firefox-debug:2.53.1
+#  ports:
+#    - 5901:5901
+#  environment:
+#    - no_proxy=localhost

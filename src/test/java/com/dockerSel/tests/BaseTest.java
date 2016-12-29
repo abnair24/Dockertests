@@ -40,25 +40,37 @@ public class BaseTest {
     public void setup(String browser) throws Exception {
 
         if(browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver",PropertyReader.getPropValue("chromepath"));
+            /*
+             System.setProperty("webdriver.chrome.driver",PropertyReader.getPropValue("chromepath"));
+             */
+
             desiredCapabilities = DesiredCapabilities.chrome();
+
+            /*
             driver = new ChromeDriver(desiredCapabilities);
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             int Width = (int) toolkit.getScreenSize().getWidth();
             int Height = (int) toolkit.getScreenSize().getHeight();
             driver.manage().window().setSize(new org.openqa.selenium.Dimension(Width, Height));
+
+             */
         }
         else if(browser.equals("firefox")) {
+
+            /*
             FirefoxProfile firefoxProfile = new FirefoxProfile();
             firefoxProfile.setEnableNativeEvents(true);
+             */
 
             desiredCapabilities = DesiredCapabilities.firefox();
+            /*
             desiredCapabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
             driver = new FirefoxDriver(desiredCapabilities);
+            */
         }
 
 
-        //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),desiredCapabilities);
+        driver = new RemoteWebDriver(new URL(PropertyReader.getPropValue("gridhuburl")),desiredCapabilities);
         System.out.println(PropertyReader.getPropValue("url"));
         driver.get(PropertyReader.getPropValue("url"));
 
@@ -103,8 +115,9 @@ public class BaseTest {
     }
 
     public String CaptureScreenShot(WebDriver driver, String screenShotName) throws IOException {
+
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        // Now you can do whatever you need to do with it, for example copy somewhere
+
         String screenshot= System.getProperty("user.dir")+"/target/"+PropertyReader.timeStamp(screenShotName)+".png";
 
         FileUtils.copyFile(scrFile, new File(screenshot));
