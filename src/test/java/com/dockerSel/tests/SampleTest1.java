@@ -4,8 +4,6 @@ import com.dockerSel.pages.*;
 import com.dockerSel.utils.ExtentTestManager;
 import com.dockerSel.utils.PropertyReader;
 import com.relevantcodes.extentreports.LogStatus;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
-import com.sun.xml.internal.ws.wsdl.writer.document.Port;
 import org.testng.annotations.Test;
 
 /**
