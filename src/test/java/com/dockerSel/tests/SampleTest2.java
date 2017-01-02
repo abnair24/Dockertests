@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  */
 public class SampleTest2 extends BaseTest {
 
-    SignInPage signInPage ;
+    SignInPage signInPage;
     DashBoardPage dashBoardPage;
     EditClientPage editClientPage;
 
