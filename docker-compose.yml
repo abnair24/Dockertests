@@ -38,3 +38,9 @@ chromenode:
 #    - 5901:5901
 #  environment:
 #    - no_proxy=localhost
+
+seltest:
+  image: abnair/dockermvn
+  links:
+    - seleniumhub:hub
+  command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test"
