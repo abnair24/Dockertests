@@ -42,5 +42,5 @@ chromenode:
 seltest:
   image: abnair/dockermvn
   links:
-    - seleniumhub:hub
+    - seleniumhub:localhost
   command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test"
