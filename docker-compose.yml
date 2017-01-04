@@ -42,7 +42,7 @@ chromenode:
 seleniumtest:
   image: abnair/dockermvn
   ports:
-    - 5000:5000
+    - 5001:5001
   links:
     - seleniumhub:test
   container_name: mvntests
