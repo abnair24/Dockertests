@@ -44,6 +44,6 @@ seleniumtest:
   ports:
     - 5001:5001
   links:
-    - seleniumhub:test
+    - seleniumhub:localhost
   container_name: mvntests
-  command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test"
+  command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test && tail -f /dev/null"
