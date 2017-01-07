@@ -13,7 +13,7 @@ public class ExtentManager {
 
     public synchronized static ExtentReports getReporter() {
         if (extent == null) {
-            extent = new ExtentReports(filePath, true);
+            extent = new ExtentReports(PropertyReader.timeStamp("Extent")+".html", true);
         }
 
         return extent;
