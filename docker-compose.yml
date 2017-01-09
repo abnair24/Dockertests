@@ -39,11 +39,11 @@ chromenode:
 #  environment:
 #    - no_proxy=localhost
 
-seleniumtest:
-  image: abnair/dockermvn
-  ports:
-    - 5001:5001
-  links:
-    - seleniumhub:localhost
-  container_name: mvntests
-  command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test && tail -f /dev/null"
+#seleniumtest:
+#  image: abnair/dockermvn
+#  ports:
+#    - 5001:5001
+#  links:
+#    - seleniumhub:localhost
+#  container_name: mvntests
+#  command: bash -c "git clone https://github.com/mirroredthoughts/Dockertests.git && cd Dockertests && mvn clean test && tail -f /dev/null"
